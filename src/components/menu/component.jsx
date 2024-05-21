@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-key */
-import { MenuItem } from "../menu-item/component";
+import { Dish } from "../dish/component";
 
 export const Menu = ({ menu }) => {
   return (
     <ul>
       {menu.map((item) => (
         <li>
-          <MenuItem menuItem={item} />
+          <Dish dish={item} />
         </li>
       ))}
     </ul>
