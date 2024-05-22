@@ -14,9 +14,9 @@ export const Dish = ({ dish }) => {
   return (
     <p>
       {dish.name} 
-      <button type="button" onClick={minusHandler} disabled={count===0}> - </button>
+      <button type="button" onClick={minusHandler} disabled={count < 1}> - </button>
       <span> {count} </span>
-      <button type="button" onClick={plusHandler} disabled={count===5}> + </button>
+      <button type="button" onClick={plusHandler} disabled={count > 4}> + </button>
     </p>
   );
 };
