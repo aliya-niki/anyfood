@@ -3,20 +3,14 @@ import { createRoot } from 'react-dom/client';
 import { restaurants } from './mocks/mock.js';
 import { Header } from './components/header/component';
 import { Footer } from './components/footer/component';
-import { Restaurant } from './components/restaurant/component';
+import { Restaurants } from './components/restaurants/component.jsx';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
   <>
     <Header>Главная</Header>
     <main>
-      <ul>
-        {restaurants.map((restaurant) => (
-          <li>
-            <Restaurant restaurant={restaurant}/>
-          </li>
-        ))}
-      </ul>
+      { Boolean(restaurants.length) && <Restaurants restaurants={restaurants} />}
     </main>
     <Footer>Футер</Footer>
   </>
