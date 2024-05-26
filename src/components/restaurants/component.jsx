@@ -1,13 +1,11 @@
-/* eslint-disable react/jsx-key */
 import { useState } from "react";
 import { Restaurant } from "../restaurant/component";
+import { RestaurantTabs } from "../restaurant-tabs/restaurant-tabs";
 
 export const Restaurants = ({ restaurants }) => {
   const [active, setActive] = useState(restaurants[0]);
 
-  const handleTabClick = (evt) => {
-    const id = evt.target.dataset.index;
-
+  const handleTabClick = (id) => {
     if (active.id === id) {
       return;
     }
@@ -16,13 +14,13 @@ export const Restaurants = ({ restaurants }) => {
     setActive(activeRestaurant);
   }
 
-  const tabs = restaurants.map((item) => (
-    <button type="button" onClick={handleTabClick} data-index={item.id}>{item.name}</button>
-  ));
-
   return (
     <div>
-      {tabs}
+      <RestaurantTabs 
+        restaurants={restaurants} 
+        onTabClick={handleTabClick}
+        activeTabId={active.id} 
+      />
       <Restaurant restaurant={active}/>
     </div>
   );
