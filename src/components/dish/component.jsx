@@ -1,5 +1,5 @@
 import { useCount } from "../../hooks/use-count";
-import { Counter } from "../counter/counter";
+import { Counter } from "../counter/component";
 
 export const Dish = ({ dish }) => {
   const { count, increment, decrement } = useCount();
