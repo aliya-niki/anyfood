@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-key */
 import { useReducer } from "react";
-import { ReviewRating } from "../review-reting/component";
+import { ReviewRating } from "../review-rating/component";
 
 const DEFAULT_REVIEW_STATE = {
   rating: 2,
