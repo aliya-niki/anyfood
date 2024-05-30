@@ -4,7 +4,7 @@ export const ScrollProgressBar = () => {
   const [scrolled, setScrolled] = useState(0);
 
   useEffect(() => {
-    const progressBarHandler = () => {
+    const handleScrollBar = () => {
       const totalScroll = document.documentElement.scrollTop;
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = `${totalScroll / windowHeight}`;
@@ -12,9 +12,9 @@ export const ScrollProgressBar = () => {
       setScrolled(scrolled);
     };
 
-    window.addEventListener("scroll", progressBarHandler);
+    window.addEventListener("scroll", handleScrollBar);
 
-    return () => window.removeEventListener('scroll', progressBarHandler);
+    return () => window.removeEventListener('scroll', handleScrollBar);
   }, []);
 
 

@@ -42,7 +42,8 @@ export const AddReviewForm = () => {
           />
         </label>
       </p>
-      <label>Ваш отзыв: 
+      <label>
+        Отзыв: 
         <textarea
           name="description"
           placeholder="Введите текст отзыва"
