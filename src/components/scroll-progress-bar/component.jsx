@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const ScrollProgressBar = () => {
-  const [scrolled, setScrolled] = useState(0);
+  const scrollBarRef = useRef();
 
   useEffect(() => {
     const handleScrollBar = () => {
@@ -9,7 +9,7 @@ export const ScrollProgressBar = () => {
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = `${totalScroll / windowHeight}`;
 
-      setScrolled(scrolled);
+      scrollBarRef.current.style.transform = `scaleX(${scrolled})`;
     };
 
     window.addEventListener("scroll", handleScrollBar);
@@ -20,7 +20,7 @@ export const ScrollProgressBar = () => {
 
   return (
     <div className="progress-wrapper" >
-      <div className="progress" style={{ transform: `scaleX(${scrolled})` }}></div>
+      <div className="progress" ref={scrollBarRef} ></div>
     </div>
   )
 };
