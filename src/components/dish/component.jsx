@@ -1,22 +1,13 @@
-import { useState } from "react";
+import { useCount } from "../../hooks/use-count";
+import { Counter } from "../counter/component";
 
 export const Dish = ({ dish }) => {
-  const [count, setCount] = useState(0);
-
-  const plusHandler = () => {
-    setCount(count + 1);
-  };
-
-  const minusHandler = () => {
-    setCount(count - 1);
-  };
-
+  const { count, increment, decrement } = useCount();
+  
   return (
     <p>
       {dish.name} 
-      <button type="button" onClick={minusHandler} disabled={count < 1}> - </button>
-      <span> {count} </span>
-      <button type="button" onClick={plusHandler} disabled={count > 4}> + </button>
+      <Counter value={count} increment={increment} decrement={decrement} />
     </p>
   );
 };
