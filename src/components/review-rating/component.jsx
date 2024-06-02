@@ -1,20 +1,18 @@
 /* eslint-disable react/jsx-key */
-const RATING_NUMBERS = [1, 2, 3, 4, 5];
-
-export const ReviewRating = ({checkedValue, onChange}) => {
+export const ReviewRating = ({checkedValue, maxRating, onChange}) => {
   return (
     <div>
       Оценка: 
-      {RATING_NUMBERS.map((ratingNumber) => (
+      {new Array(maxRating).fill(null).map((_, index) => (
         <label>
           <input
             type="radio"
             name="rating"
-            value={ratingNumber}
-            defaultChecked={ratingNumber === checkedValue}
-            onChange={onChange}
+            value={index + 1}
+            defaultChecked={index + 1 === checkedValue}
+            onChange={({target}) => onChange(Number(target.value))}
           />
-          {ratingNumber}
+          {index + 1}
         </label>
         )
       )}

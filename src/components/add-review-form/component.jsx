@@ -51,8 +51,9 @@ export const AddReviewForm = () => {
         />
       </label>
       <ReviewRating
-        checkedValue={form.rating} 
-        onChange={({target}) => dispatch({type: 'setRating', payload: Number(target.value)})}
+        checkedValue={form.rating}
+        maxRating={5}
+        onChange={(rating) => dispatch({type: 'setRating', payload: rating})}
       />
       <button type="submit" onSubmit={handleSubmit}>
         Сохранить
