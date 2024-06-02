@@ -22,6 +22,11 @@ export const Restaurants = ({ restaurants }) => {
         activeTabId={active.id} 
       />
       <Restaurant restaurant={active}/>
+      <Restaurant restaurant={active}/>
+      <Restaurant restaurant={active}/>
+      <Restaurant restaurant={active}/>
+      <Restaurant restaurant={active}/>
+      <Restaurant restaurant={active}/>
     </div>
   );
 };

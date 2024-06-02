@@ -1,3 +1,4 @@
+import { AddReviewForm } from "../add-review-form/component";
 import { Menu } from "../menu/component";
 import { Reviews } from "../reviews/component";
 
@@ -23,6 +24,7 @@ export const Restaurant = ({ restaurant }) => {
         <Reviews reviews={reviews} />
       </div>
       )}
+      <AddReviewForm />
     </div>
   );
 };
