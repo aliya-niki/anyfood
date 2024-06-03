@@ -23,3 +23,12 @@
   height: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.btn--light {
+  background-color: aliceblue;
+}
+
+.btn--dark {
+  background-color: darkblue;
+  color: white;
+}
