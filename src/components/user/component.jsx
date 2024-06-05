@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/current-user";
+import { Button } from "../button/component";
 
 export const User = () => {
   const {currentUser, setCurrentUser} = useContext(CurrentUserContext);
@@ -9,11 +10,11 @@ export const User = () => {
       { currentUser 
         ? <p>
             {currentUser}
-            <button onClick={() => setCurrentUser(null)}>Выйти</button>  
+            <Button onClick={() => setCurrentUser(null)}>Выйти</Button>  
           </p>
-        : <button onClick={() => setCurrentUser('Пользователь-1')}>
+        : <Button onClick={() => setCurrentUser('Пользователь-1')}>
           Войти
-        </button>
+        </Button>
       }
     </div>
   );
