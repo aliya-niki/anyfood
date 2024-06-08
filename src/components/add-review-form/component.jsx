@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { ReviewRating } from "../review-rating/component";
+import { Button } from "../button/component";
 
 const DEFAULT_REVIEW_STATE = {
   rating: 2,
@@ -55,9 +56,9 @@ export const AddReviewForm = () => {
         maxRating={5}
         onChange={(rating) => dispatch({type: 'setRating', payload: rating})}
       />
-      <button type="submit" onSubmit={handleSubmit}>
+      <Button type="submit" onSubmit={handleSubmit}>
         Сохранить
-      </button>
+      </Button>
     </form>
   )
 };
