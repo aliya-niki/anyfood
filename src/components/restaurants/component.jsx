@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Restaurant } from "../restaurant/component";
-import { RestaurantTabs } from "../restaurant-tabs/restaurant-tabs";
+import { RestaurantTabs } from "../restaurant-tabs/component";
 
 export const Restaurants = ({ restaurants }) => {
   const [active, setActive] = useState(restaurants[0]);
