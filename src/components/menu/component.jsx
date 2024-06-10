@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-key */
 import { Dish } from "../dish/component";
 
-export const Menu = ({ menu }) => {
+export const Menu = ({ menuIds }) => {
   return (
     <ul>
-      {menu.map((item) => (
+      {menuIds?.map((dishId) => (
         <li>
-          <Dish dish={item} />
+          <Dish dishId={dishId} />
         </li>
       ))}
     </ul>

@@ -1,17 +1,20 @@
+import { Provider } from "react-redux";
 import { CurrentUserContextProvider } from "../../contexts/current-user/provider";
 import { ThemeContextProvider } from "../../contexts/theme/provider";
-import { restaurants } from "../../mocks/mock";
 import { Layout } from "../layout/component";
 import { Restaurants } from "../restaurants/component";
+import { store } from "../../redux";
 
 export const App = () => {
   return (
-    <ThemeContextProvider>
-      <CurrentUserContextProvider>
-        <Layout>
-          { Boolean(restaurants.length) && <Restaurants restaurants={restaurants} />}
-        </Layout>
-      </CurrentUserContextProvider>
-    </ThemeContextProvider>
+    <Provider store={store}>
+      <ThemeContextProvider>
+        <CurrentUserContextProvider>
+          <Layout>
+            <Restaurants />
+          </Layout>
+        </CurrentUserContextProvider>
+      </ThemeContextProvider>
+    </Provider>
   );
 };
