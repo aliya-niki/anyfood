@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { normalizedRestaurants } from "../../mocks/normalized-mock";
+import { normalizedRestaurants } from "../../../mocks/normalized-mock";
 
 export const restaurantSlice = createSlice({
   name: 'restaurant',

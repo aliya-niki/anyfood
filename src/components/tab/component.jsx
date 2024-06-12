@@ -1,12 +1,9 @@
 import { Button } from "../button/component";
 
-export const Tab = ({ name, onTabClick, isActive }) => {
+export const Tab = ({ title, onTabClick, isActive }) => {
   return (
-    <Button
-      onClick={() => onTabClick()} 
-      disabled={isActive}
-    >
-      {name}
+    <Button onClick={onTabClick} disabled={isActive}>
+      {title}
     </Button>
   );
 };

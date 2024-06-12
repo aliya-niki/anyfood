@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { Restaurant } from "../restaurant/component";
-import { RestaurantTabs } from "../restaurant-tabs/component";
-import { useSelector } from "react-redux";
+import { RestaurantTabsContainer } from "../restaurant-tabs/container";
+import { RestaurantContainer } from "../restaurant/container";
 
-export const Restaurants = () => {
-  const restaurantsIds = useSelector((state) => state.restaurant.ids);
+export const Restaurants = ({ restaurantsIds }) => {
   const [activeId, setActiveId] = useState(restaurantsIds[0]);
 
   const handleTabClick = (id) => {
@@ -16,17 +14,13 @@ export const Restaurants = () => {
     setActiveId(activeRestaurantId);
   }
 
-  if (!restaurantsIds.length) {
-    return;
-  }
-
   return (
     <div>
-      <RestaurantTabs
+      <RestaurantTabsContainer
         onTabClick={handleTabClick}
         activeTabId={activeId} 
       />
-      <Restaurant restaurantId={activeId}/>
+      <RestaurantContainer restaurantId={activeId}/>
     </div>
   );
 };
