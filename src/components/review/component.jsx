@@ -1,3 +1,5 @@
 export const Review = ({ review }) => {
-  return <p>{review.text}</p>;
+  const { text } = review;
+
+  return <p>{text}</p>;
 };

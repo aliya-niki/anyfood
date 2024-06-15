@@ -6,10 +6,11 @@ import { CurrentUserContext } from "../../contexts/current-user/context";
 export const Dish = ({ dish }) => {
   const { count, increment, decrement } = useCount();
   const { currentUser } = useContext(CurrentUserContext);
+  const { name } = dish;
   
   return (
     <p>
-      {dish.name}
+      {name}
       { Boolean(currentUser) && <Counter value={count} increment={increment} decrement={decrement} />}
     </p>
   );
