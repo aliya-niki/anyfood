@@ -5,7 +5,7 @@ import { Restaurants } from "./component";
 export const RestaurantsContainer = () => {
   const restaurantsIds = useSelector(selectRestaurantIds);
   
-  if (!restaurantsIds.length) {
+  if (!restaurantsIds) {
     return;
   }
 

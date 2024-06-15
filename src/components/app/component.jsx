@@ -1,20 +1,24 @@
-import { Provider } from "react-redux";
+import { useDispatch } from "react-redux";
 import { CurrentUserContextProvider } from "../../contexts/current-user/provider";
 import { ThemeContextProvider } from "../../contexts/theme/provider";
 import { Layout } from "../layout/component";
-import { store } from "../../redux";
 import { RestaurantsContainer } from "../restaurants/container";
+import { useEffect } from "react";
+import { getRestaurants } from "../../redux/entities/restaurant/thunks/get-restaurants";
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRestaurants());
+  }, [dispatch]);
+
   return (
-    <Provider store={store}>
-      <ThemeContextProvider>
-        <CurrentUserContextProvider>
-          <Layout>
-            <RestaurantsContainer />
-          </Layout>
-        </CurrentUserContextProvider>
-      </ThemeContextProvider>
-    </Provider>
+    <ThemeContextProvider>
+      <CurrentUserContextProvider>
+        <Layout>
+          <RestaurantsContainer />
+        </Layout>
+      </CurrentUserContextProvider>
+    </ThemeContextProvider>
   );
 };
