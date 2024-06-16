@@ -1,25 +1,24 @@
 import { AddReviewForm } from "../add-review-form/component";
-import { Menu } from "../menu/component";
-import { Reviews } from "../reviews/component";
+import { MenuContainer } from "../menu/container";
+import { ReviewsContainer } from "../reviews/container";
 
 export const Restaurant = ({ restaurant }) => {
-  const { name, menu, reviews } = restaurant;
+  const { name, id } = restaurant;
 
   return (
     <div>
       <h2>{name}</h2>
-      {Boolean(menu.length) && (
-        <div>
-          <h3>Меню</h3>
-          <Menu menuIds={menu} />
-        </div>
-      )}
-      {Boolean(reviews.length) && (
-        <div>
-        <h3>Отзывы</h3>
-        <Reviews reviewsIds={reviews} />
+      
+      <div>
+        <h3>Меню</h3>
+        <MenuContainer restaurantId={id} />
       </div>
-      )}
+      
+      <div>
+        <h3>Отзывы</h3>
+        <ReviewsContainer restaurantId={id} />
+      </div>
+
       <AddReviewForm />
     </div>
   );
