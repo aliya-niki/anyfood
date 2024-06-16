@@ -4,13 +4,13 @@ import { selectRestaurantDishesIds } from "../../redux/entities/restaurant/selec
 import { getDishesById } from "../../redux/entities/dish/thunks/get-dishes-by-id";
 import { Menu } from "./component";
 
-export const MenuContainer = ({ id }) => {
+export const MenuContainer = ({ restaurantId }) => {
   const dispatch = useDispatch();
-  const dishesIds = useSelector((state) => selectRestaurantDishesIds(state, id));
+  const dishesIds = useSelector((state) => selectRestaurantDishesIds(state, restaurantId));
 
   useEffect(() => {
-    dispatch(getDishesById(id));
-  }, [dispatch, id]);
+    dispatch(getDishesById({restaurantId}));
+  }, [dispatch, restaurantId]);
 
   if (!dishesIds) {
     return;

@@ -1,6 +1,6 @@
 import { ScrollProgressBar } from "../scroll-progress-bar/component";
-import { User } from "../user/component";
 import { ThemeButton } from "../theme-button/component";
+import { UserContainer } from "../user/container";
 
 export const Header = ({ children }) => {
   return (
@@ -8,7 +8,7 @@ export const Header = ({ children }) => {
       <ScrollProgressBar />
       <a href="#">Главная</a>
       <ThemeButton />
-      <User />
+      <UserContainer />
       {children}
     </header>
   );

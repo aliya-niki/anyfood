@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { selectUserIds } from "../selectors";
 
 export const getUsers = createAsyncThunk(
   "user/getUsers",
@@ -6,5 +7,8 @@ export const getUsers = createAsyncThunk(
     const response = await fetch("http://localhost:3001/api/users/");
 
     return response.json();
-  }
+  },
+  {
+    condition: ({forceRefetch = false} = {}, { getState }) => forceRefetch || selectUserIds(getState())?.length,
+  },
 );
